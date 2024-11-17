@@ -1,0 +1,86 @@
+.message {
+  display: flex;
+  margin: 8px 16px;
+  max-width: 70%;
+  position: relative;
+}
+
+.message-sent {
+  margin-left: auto;
+  flex-direction: row-reverse;
+}
+
+.message-received {
+  margin-right: auto;
+  flex-direction: row;
+}
+
+.message-content {
+  padding: 8px 12px;
+  border-radius: 12px;
+  background-color: #f0f0f0;
+  position: relative;
+  max-width: 100%;
+}
+
+.message-sent .message-content {
+  background-color: #0084ff;
+  color: white;
+  margin-right: 0;
+}
+
+.message-received .message-content {
+  background-color: #f0f0f0;
+  color: black;
+  margin-left: 0;
+}
+
+.message-sender {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.message-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.message-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  margin-top: 4px;
+  justify-content: flex-end;
+}
+
+.message-sent .message-info {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.message-time {
+  cursor: help;
+}
+
+.message-status {
+  font-size: 0.8rem;
+}
+
+.message-status.read {
+  color: #34b7f1;
+}
+
+/* Hover effects */
+.message-content:hover .message-time {
+  opacity: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .message {
+    max-width: 85%;
+    margin: 8px 8px;
+  }
+}

@@ -1,58 +1,91 @@
-# Spring Boot Chat Application
+# Ứng Dụng Chat Sử Dụng Spring Boot
 
-This repository hosts the code for a chat application that utilizes Spring Boot for backend services and includes a client application. The backend is split into two services: `auth-service` for managing user authentication, and `chat-service` for managing chat messages. The client application provides a basic web interface built using React. All services are containerized using Docker and managed with Docker Compose. The application is accessed through a single entry point on port 80, which is managed by Nginx. Nginx serves the static files for the frontend application and also functions as an API gateway, managing communication with and between the backend services.
+Repository này chứa mã nguồn của một ứng dụng chat sử dụng Spring Boot cho phần backend và bao gồm cả ứng dụng client. Backend được chia thành hai service: `auth-service` để quản lý xác thực người dùng, và `chat-service` để quản lý tin nhắn. Ứng dụng client cung cấp giao diện web cơ bản được xây dựng bằng React. Tất cả các service đều được đóng gói trong Docker và quản lý bằng Docker Compose. Ứng dụng được truy cập thông qua một điểm vào duy nhất trên cổng 80, được quản lý bởi Nginx. Nginx phục vụ các tệp tĩnh cho ứng dụng frontend và cũng hoạt động như một API gateway, quản lý giao tiếp với và giữa các service backend.
 
-## Services
+## Các Service
 
-- `auth-service`: Handles user authentication. It uses Spring Security for authentication and JWT for maintaining user sessions.
+- `auth-service`: Xử lý xác thực người dùng. Sử dụng Spring Security cho xác thực và JWT để duy trì phiên người dùng.
 
-- `chat-service`: Handles chat messages. It uses MongoDB for storing messages and Redis for caching.
+- `chat-service`: Xử lý tin nhắn chat. Sử dụng MongoDB để lưu trữ tin nhắn và Redis để cache.
 
-- `chat-app-client`: A simple web interface for the chat application. It is built using React and uses STOMP Client for real-time communication with the chat service.
+- `chat-app-client`: Giao diện web đơn giản cho ứng dụng chat. Được xây dựng bằng React và sử dụng STOMP Client để giao tiếp thời gian thực với chat service.
 
-## Application Architecture Diagram
+## Bắt Đầu
 
-![diagram](https://github.com/misterneo/spring-microservices-chat-app/assets/25622326/2f5e8edc-c5bc-4725-8f60-b863818b5d19)
+Để bắt đầu với ứng dụng, bạn cần cài đặt Docker và Docker Compose trên máy tính của bạn. Sau khi có các điều kiện tiên quyết này, bạn có thể clone repository và sử dụng Docker Compose để xây dựng và chạy ứng dụng.
 
-## Getting Started
+## Chạy Ứng Dụng
 
-To get started with the application, you need to have Docker and Docker Compose installed on your machine. Once you have these prerequisites, you can clone the repository and use Docker Compose to build and run the application.
-
-## Running the Application
-
-1. Clone the repository:
+1. Clone repository:
 
 ```sh
-git clone https://github.com/misterneo/spring-microservices-chat-app.git
+git clone 
 cd spring-microservices-chat-app
 ```
 
-2. Build the services:
+2. Xây dựng các service:
 
 ```sh
 docker compose build
 ```
 
-3. Start the application
+3. Khởi động ứng dụng:
 
-```
+```sh
 docker compose up -d
 ```
 
-4. Access the application at `http://localhost`
+4. Truy cập ứng dụng tại `http://localhost`
 
-## Stopping the Application
+## Dừng Ứng Dụng
 
-To stop the application, run the following command:
+Để dừng ứng dụng, chạy lệnh sau:
 
 ```sh
 docker compose down
 ```
 
-## Disclaimer
+## Tính Năng Hiện Tại
 
-This project is for demonstration purposes only. It is not intended for production use. If you have any suggestions for improvements, please feel free to open an issue or submit a pull request.
+### Backend
+- Xác thực JWT
+- Nhắn tin thời gian thực qua WebSocket
+- Theo dõi trạng thái online của người dùng
+- Các thao tác CRUD cơ bản với tin nhắn
+- MongoDB cho lưu trữ tin nhắn
+- MySQL cho dữ liệu người dùng
+- Redis cho cache
 
-## License
+### Frontend
+- Giao diện dựa trên React
+- Luồng xác thực cơ bản
+- Giao diện chat đơn giản
+- Hiển thị thời gian tin nhắn
+- Chỉ báo trạng thái tin nhắn
+- Thiết kế responsive
 
-This project is licensed under the MIT license. See the [LICENSE](https://choosealicense.com/licenses/mit/) file for more details.
+## Công Nghệ Sử Dụng
+
+### Backend
+- Spring Boot
+- Spring Security
+- Spring Data JPA
+- Spring WebSocket
+- MongoDB
+- MySQL
+- Redis
+- JWT
+
+### Frontend
+- React
+- WebSocket (STOMP)
+- date-fns
+- Tailwind CSS
+
+## Đóng Góp
+
+Nếu bạn muốn đóng góp cho dự án, hãy tạo pull request hoặc báo cáo issues trên GitHub.
+
+## Giấy Phép
+
+Dự án này được phân phối dưới Giấy phép MIT. Xem file `LICENSE` để biết thêm chi tiết.
